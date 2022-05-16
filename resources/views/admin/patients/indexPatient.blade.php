@@ -18,7 +18,6 @@
             <th>Next Reservation</th>
             <th>Total payments</th>
             <th>Change</th>
-            <th>show</th>
         </tr>
         @forelse ($patients as $patient)
         <tr>
@@ -27,14 +26,14 @@
             <td>{{$patient->phone}}</td>
             <td>{{$patient->treatmentState()}}</td>
             <td>{{$patient->reservations->min('date') == '' ? 'No reservation found' : $patient->reservations->min('date')->format('Y-m-d H:i')}}</td>
-            <td>{{$patient->payments->sum('amount')}}</td>
+            <td>
+                <a href="{{route('patients.show', $patient->id)}}">
+                    {{$patient->payments->sum('amount')}}
+                </a>
             <td>
                 <a href="{{route('patients.edit', $patient->id)}}">
                     <i class="pointer fa fa-edit fa fa-2x"></i>
                 </a>
-            </td>
-            <td>
-                <a href="{{route('patients.show', $patient->id)}}"><i class="fa-solid fa-eye"></i></a>
             </td>
         </tr>
         @empty

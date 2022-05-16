@@ -13,7 +13,7 @@
                 <option value="0" selected>Not complete</option>
                 <option value="1"  {{old('treatment_state') == '1' ? 'selected' : ''}}>complete</option>
             </select>
-            <button class="button">add</button>
+            <button class="button">Add Patient</button>
         </form>
     </div>
 </div>

@@ -17,8 +17,12 @@ class ReservationController extends Controller
      */
     public function index()
     {
-        Reservation::where('date','<',Carbon::now())->delete();
-        $resevrations = Reservation::all();
+        Reservation::where('date', '<', Carbon::now())->delete();
+        $resevrations = Reservation::query()
+            ->when(request()->keyword != null, function ($query) {
+                $query->search(request()->keyword);
+            })
+            ->orderBy(request()->sort_by ?? 'id', request()->order_by ?? 'desc')->get();
         return view('admin.resevations.indexResevation', compact('resevrations'));
     }
 
@@ -43,10 +47,10 @@ class ReservationController extends Controller
     {
         $request->validate([
             'patient_id'        => 'required',
-            'date'              =>'required|date|unique:reservations,date',
+            'date'              => 'required|date|unique:reservations,date',
         ]);
         Reservation::create([
-            'patient_id'    => $request->patient_id,
+            'patient_id'    =>  $request->patient_id,
             'date'          =>  $request->date,
         ]);
         return redirect()->route('reservations.index')->with([
@@ -73,8 +77,8 @@ class ReservationController extends Controller
      */
     public function edit($id)
     {
-        $reservation_selected=Reservation::find($id);
-        return view('admin.resevations.editResevation',compact('reservation_selected'));
+        $reservation = Reservation::find($id);
+        return view('admin.resevations.editResevation',compact('reservation'));
     }
 
     /**
@@ -87,12 +91,12 @@ class ReservationController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'date'  =>  'date|unique:reservations,date,'.$id,
+            'date'  =>  'required|date|unique:reservations,date,'.$id,
         ]);
         Reservation::find($id)->update([
             'date'=>$request->date,
         ]);
-        return redirect()->route('patients.index')->with([
+        return redirect()->route('reservations.index')->with([
             'success' => 'Updated successfully',
         ]);
     }

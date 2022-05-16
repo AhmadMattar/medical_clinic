@@ -70,8 +70,9 @@ class PatientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Patient $patient)
+    public function show($id)
     {
+        $patient = Patient::find($id);
         return view('admin.patients.showPatient', compact('patient'));
     }
 
@@ -81,8 +82,9 @@ class PatientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Patient $patient)
+    public function edit($id)
     {
+        $patient = Patient::find($id);
         return view('admin.patients.EditPatient', compact('patient'));
     }
 

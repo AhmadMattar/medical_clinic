@@ -14,10 +14,6 @@
                         <h3>Payemnt state</h3>
                     </tr>
                     <tr>
-                        <th>Total payments</th>
-                        <td>{{$patient->payments->sum('amount')}}</td>
-                    </tr>
-                    <tr>
                         <th>Name</th>
                         <th>Amount</th>
                         <th>Date of pay</th>
@@ -29,6 +25,11 @@
                             </tr>
                         @empty
                         @endforelse
+                    </tr>
+                    <tr></tr>
+                    <tr>
+                        <th>Total payments</th>
+                        <td>{{$patient->payments->sum('amount')}}</td>
                     </tr>
                 </tbody>
             </table>

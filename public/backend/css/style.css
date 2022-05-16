@@ -4,8 +4,8 @@
     box-sizing: border-box;
 }
 :root{
-    --mainColor:black;
-    --secondColor:#333;
+    --mainColor:#02333c;
+    --secondColor:#08535d;
     --thirdColor:#ffffff;
     --buttonColor:#04aa6d;
 }
@@ -27,7 +27,7 @@ ul{
 }
 a{
     text-decoration: none !important;
-    color: #F1F1F1 !important;
+    color: #000000 !important;
     display: block;
     padding: 10px 15px;
     font-weight: bold;
@@ -87,14 +87,14 @@ tr:nth-child(even) td:last-of-type a i{
 }
 header{
     background-color: var(--mainColor);
-     background-image: url("logo.png");
-     background-repeat: no-repeat;
-     height: 15%;
-     width: 100%;
-     position: fixed;
-     top: 0;
-     left: 0;
-     z-index: 1;
+    background-image: url("logo.png");
+    background-repeat: no-repeat;
+    height: 15%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
 }
 
 header h1{

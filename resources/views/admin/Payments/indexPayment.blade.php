@@ -2,11 +2,16 @@
 @section('content')
 <div id="payments">
     @if (session('success'))
+        <div class="" id="pargMessage">
+            <p id="pargMessage">{{session('success')}}</p>
+        </div>
+    @endif
+    {{-- @if (session('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
         {{session('success')}}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
-    @endif
+    @endif --}}
     <h2 class="title">Payments</h2>
     <br>
     <br><br>
