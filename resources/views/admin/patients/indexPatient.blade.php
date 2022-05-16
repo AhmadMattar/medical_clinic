@@ -1,23 +1,23 @@
 @extends('admin.layout.master')
 @section('content')
 <div id="patients">
+
+    <h2 class="title">Patients</h2><hr><br><br>
     @if (session('success'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-        {{session('success')}}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <div class="" id="pargMessage">
+            <p >{{session('success')}}</p>
         </div>
     @endif
-    <h2 class="title">Patients</h2><hr><br><br>
     @include('admin.patients.filter.filter')
     <table>
         <tr>
             <th>Name</th>
-            <th>Identify Num</th>
+            <th>ID Num</th>
             <th>Phone Num</th>
             <th>Treatment State</th>
             <th>Next Reservation</th>
-            <th>Total payments</th>
-            <th>Change</th>
+            <th>Payments</th>
+            <th>Action</th>
         </tr>
         @forelse ($patients as $patient)
         <tr>
@@ -31,8 +31,11 @@
                     {{$patient->payments->sum('amount')}}
                 </a>
             <td>
-                <a href="{{route('patients.edit', $patient->id)}}">
+                <a href="{{route('patients.edit', $patient->id)}}" style="margin-right: 10px">
                     <i class="pointer fa fa-edit fa fa-2x"></i>
+                </a>
+                <a href="{{route('patients.edit', $patient->id)}}">
+                    <i class="pointer fa fa-trash fa fa-2x"></i>
                 </a>
             </td>
         </tr>

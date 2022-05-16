@@ -5,17 +5,16 @@
 }
 :root{
     --mainColor:#02333c;
-    --secondColor:#08535d;
+    --secondColor:#4c71dd;
     --thirdColor:#ffffff;
     --buttonColor:#04aa6d;
 }
-body{
-    font-family:'Times New Roman', Times, serif;
+html{
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 15px;
 }
 .button{
     background-color: var(--buttonColor);
-    border: 1px black solid;
     color: white;
     padding: 6px 12px;
     font-size:medium;
@@ -27,30 +26,31 @@ ul{
 }
 a{
     text-decoration: none !important;
-    color: #000000 !important;
+    color: #000000 ;
     display: block;
-    padding: 10px 15px;
+    padding: 10px 0;
     font-weight: bold;
-    border: 1px rgb(107, 157, 197) solid;
-    border-radius: 20%;
-    text-align: center;
     transition: all .5s;
 }
 #pargMessage{
-    width: 20%;
-    border: 1px rgb(212, 73, 73) solid;
-    padding: 15px 10px;
-    border-radius: 10%;
-    text-align: center;
-    color: red;
-    position: fixed;
-    text-transform: capitalize;
+    color: white;
+    background-color: #04aa6d;
+    padding: 20px;
     font-weight: bold;
-    bottom: 10px;
-    right: 0;
-    display: none;
-    background-color:#79f0cc;
+    margin-bottom: 10px;
+    animation-name:pargAnim ;
+    animation-duration: 4s;
+    animation-fill-mode:both;
 }
+.sidebarlink{
+    width: 100%;
+    text-align: left;
+}
+@keyframes pargAnim{
+    0% {background-color: #04aa6d;}
+    100% {background-color:white;}
+}
+
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
@@ -59,37 +59,44 @@ table {
 }
 
 td, th {
-    border: 1px solid #dddddd;
+    border: 1.5px solid #dddddd;
     padding: 8px;
     text-align: center;
 }
 tr{
     text-align: center;
-    color: white;
-    background-color: var(--mainColor);
-}
-tr:nth-child(even) {
-    background-color: white;
     color: black;
+
+    background-color: var(--thirdColor);
+}
+tr:first-of-type {
+    background-color: #4c71dd;
+    color: white;
 }
 .hoverEffect:hover{
-    background-color: var(--thirdColor);
-    color: var(--mainColor) !important;
+    /* background-color: var(--thirdColor);
+    color: var(--mainColor) !important; */
+    color: rgb(255, 255, 255);
+}
+.hoverEffect1{
+    width: 90%;
+    margin: auto;
+    padding: 10px 10px;
+    border-radius: 10%;
+}
+.hoverEffect1:hover{
+    background-color: #cfcccc;
+    /* color: white; */
 }
 tr td:last-of-type a {
     border: none !important;
+    display: inline-block;
 }
-tr td:last-of-type a i{
-    color: white;
-}
-tr:nth-child(even) td:last-of-type a i{
-    color: black;
-}
+
 header{
-    background-color: var(--mainColor);
+    background-color:#2457f0;
     background-image: url("logo.png");
     background-repeat: no-repeat;
-    height: 15%;
     width: 100%;
     position: fixed;
     top: 0;
@@ -97,17 +104,16 @@ header{
     z-index: 1;
 }
 
-header h1{
+header h2{
     padding: 25px;
-    padding-left: 45px;
-    font-size: 40px;
+    padding-left: 30px;
+    font-size: 25px;
     color:#F1F1F1;
 
 }
 
 .content{
     background-color: var(--thirdColor);
-    height: 1000px;
 }
 aside{
     background-color: var(--secondColor);
@@ -115,7 +121,7 @@ aside{
     min-width: 16%;
     height: 100%;
     left: 0;
-    top: 15%;
+    top: 12%;
 }
 
 main{
@@ -124,11 +130,14 @@ main{
 
 
 .links{
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
-.links li{
-    padding: 20px 10px;
-    width: 80%;
+.links h3{
+    padding: 20px 15px;
+    color: rgb(201, 199, 199);
+}
+.links li:nth-child(even) a{
+    padding-left: 15px;
 }
 
 #patients{
@@ -138,33 +147,31 @@ main{
     width:150px;
     margin: auto;
 }
-#patientsForm{
+/* #form{
     margin: 30px 0;
     position: relative;
-    display: none;
     padding: 15px;
     color: white;
-    background-color: var(--secondColor);
+    background-color: #dddddd;
 }
-#patientsForm *{
-    margin: 5px;
-    padding: 5px;
-}
-
-#patientsForm i{
-    position: absolute;
-    right: 5px;
-    top:0;
-}
+#form *{
+    margin: 10px;
+    padding: 10px;
+}*/
 
 .search-container{
     margin: 20px 0;
 }
+
+.search-container *{
+    padding: 7px;
+}
+/*
 form input{
     width: 200px;
     height: 30px;
     margin: 0 10px;
-}
+} */
 .bold{
     font-weight: bold;
 }
@@ -172,3 +179,72 @@ form input{
     cursor: pointer;
 }
 
+.superpart{
+    margin: 0 15px;
+}
+.sidebarlink{
+    background-color: white;
+    display: none;
+    padding: 15px 0;
+    margin-top: 5px;
+    border-radius: 10%;
+}
+.sidebarlink a{
+    color: rgb(88, 88, 88) ;
+    font-size: 15px;
+}
+
+.alert{
+    background-color: #f7b2b2;
+    color: rgb(206, 88, 88);
+    padding: 15px;
+    width: 80%;
+    margin: auto;
+    border-radius: 10%;
+}
+label{
+    color: #000000;
+}
+
+/* 0
+
+0
+0
+0
+0
+0
+
+*/
+.container2{
+    width: 55%;
+    margin: auto;
+    margin-top: 120px;
+    background-color: #fcf8f8;
+    border-radius: 10%;
+    border: #4c71dd .5px solid;
+}
+
+#form2{
+    width: 80%;
+    margin: auto;
+    padding: 15px;
+    color: white;
+
+}
+#form2 *{
+    margin: 10px;
+    padding: 10px;
+}
+
+#form2 input{
+    width: 350px;
+    height: 30px;
+    margin: 10px 10px;
+}
+
+.form_h2{
+    padding: 15px 80px;
+}
+option{
+    font-size: 15px;
+}

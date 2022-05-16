@@ -19,6 +19,6 @@
             <option value="asc" {{ old('order_by', request()->input('order_by')) == 'asc' ? 'selected' : '' }}>Ascending</option>
             <option value="desc" {{ old('order_by', request()->input('order_by')) == 'desc' ? 'selected' : '' }}>Descending</option>
         </select>
-        <button type="submit" name="submit" class="btn btn-link"><i class="fa fa-search"></i></button>
+        <button type="submit" name="submit" class="btn btn-link">Search</button>
     </form>
 </div>

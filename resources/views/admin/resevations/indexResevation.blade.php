@@ -1,12 +1,13 @@
 @extends('admin.layout.master')
 @section('content')
 <div id="payments">
+
+    <h2 class="title">Resevrations</h2>
     @if (session('success'))
         <div class="" id="pargMessage">
-            <p id="pargMessage">{{session('success')}}</p>
+            <p>{{session('success')}}</p>
         </div>
     @endif
-    <h2 class="title">Resevrations</h2>
     <br>
     @include('admin.resevations.filter.filter')
     <table class="table">

@@ -1,28 +1,19 @@
-const patientsForm = document.getElementById("patientsForm");
-const addIconButt = document.getElementById("addButt");
-const buttChangePatient = document.getElementById("buttChangePatient");
+const pargMess = document.getElementById("pargMessage");
+const superparts = document.querySelectorAll(".superpart");
+const sidebarlinks = document.querySelectorAll(".sidebarlink");
 
-const editIconPatient = document.querySelectorAll(".editIcon");
-const buttAddPatient = document.getElementById("buttAddPatient");
-
-const close = document.getElementById("close");
-
-buttAddPatient.onclick=showPatientsFormWhenAdd;
-editIconPatient.forEach(function(value){
-    value.onclick=showPatientsFormWhenChange;
-})
-close.onclick=hidePatientsForm;
-
-function showPatientsFormWhenAdd(){
-    patientsForm.style.display="block";
-    buttChangePatient.style.display="none";
-    addIconButt.style.display="block";
+function myFunction() {
+    t = setTimeout(hideBar,3000)
 }
-function showPatientsFormWhenChange(){
-    patientsForm.style.display="block";
-    addIconButt.style.display="none";
-    buttChangePatient.style.display="block";
+function hideBar(){
+    pargMess.style.display="none";
 }
-function hidePatientsForm(){
-    patientsForm.style.display="none";
+for(let i=0;i<superparts.length;i++){
+    superparts[i].onclick=function(){
+        if(sidebarlinks[i].style.display == "block")
+            sidebarlinks[i].style.display= "none";
+        else
+            sidebarlinks[i].style.display ="block";
+    }
 }
+myFunction()

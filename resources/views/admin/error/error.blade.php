@@ -1,5 +1,5 @@
 @if ($errors->any())
-<div class="alert alert-danger">
+<div class="alert">
     <ul>
         @foreach ($errors->all() as $error)
         @if ($error == 'The patient id field is required.')
