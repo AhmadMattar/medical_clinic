@@ -17,3 +17,6 @@ for(let i=0;i<superparts.length;i++){
     }
 }
 myFunction()
+
+var today = new Date().toISOString().slice(0, 16);
+document.getElementsByName("date")[0].setAttribute('min', today);

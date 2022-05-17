@@ -1,7 +1,7 @@
 @extends('admin.layout.master')
 @section('content')
 <div id="payments">
-    <h2 class="title">Payments</h2><br>
+    <h2 class="title">Payments</h2><hr><br><br>
     @if (session('success'))
         <div class="" id="pargMessage">
             <p>{{session('success')}}</p>

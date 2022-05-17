@@ -109,6 +109,10 @@ class ReservationController extends Controller
      */
     public function destroy($id)
     {
+        Reservation::find($id)->delete();
+        return redirect()->route('reservations.index')->with([
+            'success' => 'Deleted successfully',
+        ]);
     }
 
 }
